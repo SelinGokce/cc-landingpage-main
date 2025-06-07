@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 if (typeof window !== "undefined") {
   const link = document.createElement('link');
   link.href = 'https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap';
@@ -44,18 +46,66 @@ export default function Home() {
       <div
         style={{
           width: '100vw',
-          height: '60vh',
+          height: '70vh',
           background: '#27272a',
           display: 'flex',
+          flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
+          position: 'relative',
+          overflow: 'hidden',
           fontSize: '2rem',
           color: '#a1a1aa',
-          margin: '-2rem 0 3rem -2rem', // offset main padding for full width
-          borderRadius: '8px'
+          margin: '-2rem 0 3rem -2rem',
+          borderRadius: '8px',
+          paddingRight: '4rem',
+          paddingLeft: '4rem',
+          zIndex: 1
         }}
       >
-        Fullscreen Image Placeholder
+        {/* Left column: text */}
+        <div
+          style={{
+            flex: '1 1 0',
+            zIndex: 1,
+            color: '#f3f4f6',
+            textAlign: 'left',
+            maxWidth: '40%',
+          }}
+        >
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Placeholder Title</h2>
+          <p style={{ fontSize: '1.25rem', color: '#a1a1aa' }}>
+            This is some placeholder text on the left side of the fullscreen image section. You can replace it with your own content.
+          </p>
+        </div>
+        {/* Right column: image */}
+        <div
+          style={{
+            flex: '1 1 0',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            height: '100%',
+            position: 'relative',
+            minWidth: 0,
+          }}
+        >
+          <Image
+            src="/zeshoek_inside.svg"
+            alt="Installatie Image"
+            width={1200}
+            height={1200}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              zIndex: 0,
+              position: 'relative',
+              borderRadius: '8px'
+            }}
+            priority
+          />
+        </div>
       </div>
 
       {/* Hero Section */}
