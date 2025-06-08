@@ -60,7 +60,8 @@ export default function Home() {
           borderRadius: '8px',
           paddingRight: '4rem',
           paddingLeft: '4rem',
-          zIndex: 1
+          zIndex: 1,
+          marginBottom: '4rem' // Add extra space below this section
         }}
       >
         {/* Left column: text */}
@@ -91,7 +92,7 @@ export default function Home() {
           }}
         >
           <Image
-            src="/zeshoek_inside.svg"
+            src="/inside_image.png"
             alt="Installatie Image"
             width={1200}
             height={1200}
@@ -101,7 +102,8 @@ export default function Home() {
               objectFit: 'cover',
               zIndex: 0,
               position: 'relative',
-              borderRadius: '8px'
+              borderRadius: '8px',
+              boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)' // <-- Drop shadow added here
             }}
             priority
           />
@@ -109,18 +111,69 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <h1 style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>Welcome to Our Landing Page</h1>
-        <p style={{ fontSize: '1.25rem', color: '#a1a1aa' }}>
-          Discover our amazing product and how it can help you achieve your goals.
-        </p>
-        <button style={{ padding: '1em 2em', fontSize: '1rem', background: '#2563eb', color: '#f3f4f6', border: 'none', borderRadius: '5px', cursor: 'pointer', marginTop: '1.5em', transition: 'background 0.2s' }}>
-          Get Started
-        </button>
+      <section style={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
+        <h1 style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>How it works</h1>
+        <section
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '2rem',
+            margin: '4rem auto',
+            maxWidth: '900px', // Limit width for compactness
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+
+          }}
+        >
+          {[1, 2, 3].map((row) => (
+            <div
+              key={row}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '2rem',
+                width: '100%',
+                maxWidth: '800px', // Prevent row from stretching too far
+                margin: '0 auto',
+              }}
+            >
+              {/* Left column: placeholder text */}
+              <div style={{ flex: 1 }}>
+                <h3 style={{ color: '#f3f4f6', marginBottom: '0.5rem' }}>Row {row} Title</h3>
+                <p style={{ color: '#a1a1aa' }}>This is some placeholder text for row {row}.</p>
+              </div>
+              {/* Right column: bigger placeholder image */}
+              <div
+                style={{
+                  width: '180px',
+                  height: '180px',
+                  background: '#232329',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 2px 16px rgba(0,0,0,0.24)',
+                  flexShrink: 0,
+                  overflow: 'hidden'
+                }}
+              >
+                <Image
+                  src={`/instructionCard-${row}.png`}
+                  alt={`instructions ${row}`}
+                  width={200}
+                  height={300}
+                  priority={row === 1}
+                />
+              </div>
+            </div>
+          ))}
+        </section>
       </section>
 
       {/* Features Section */}
-      <section style={{ display: 'flex', justifyContent: 'space-around', gap: '2rem', flexWrap: 'wrap' }}>
+      <section style={{ display: 'flex', justifyContent: 'space-around', gap: '2rem', flexWrap: 'wrap', marginTop: '4rem', marginBottom: '4rem' }}>
         <div style={{ background: '#232329', padding: '2em', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.24)', flex: '1 1 250px', minWidth: '220px' }}>
           <h2 style={{ color: '#f3f4f6' }}>Feature One</h2>
           <p style={{ color: '#a1a1aa' }}>Short description of the first feature.</p>
