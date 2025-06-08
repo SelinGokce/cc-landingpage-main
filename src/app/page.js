@@ -110,6 +110,38 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Video Placeholder Section */}
+      <section
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: '4rem auto 4rem auto',
+          maxWidth: '900px',
+          width: '100%',
+        }}
+      >
+        <h2 style={{ color: '#f3f4f6', fontSize: '2rem', marginBottom: '1.5rem' }}>Watch the Installation</h2>
+        <div
+          style={{
+            width: '100%',
+            maxWidth: '700px',
+            aspectRatio: '16/9',
+            background: '#232329',
+            borderRadius: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#a1a1aa',
+            fontSize: '1.5rem',
+            boxShadow: '0 2px 16px rgba(0,0,0,0.24)',
+          }}
+        >
+          Video Placeholder
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section style={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
         <h1 style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>How it works</h1>
@@ -126,49 +158,72 @@ export default function Home() {
 
           }}
         >
-          {[1, 2, 3].map((row) => (
-            <div
-              key={row}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '2rem',
-                width: '100%',
-                maxWidth: '800px', // Prevent row from stretching too far
-                margin: '0 auto',
-              }}
-            >
-              {/* Left column: placeholder text */}
-              <div style={{ flex: 1 }}>
-                <h3 style={{ color: '#f3f4f6', marginBottom: '0.5rem' }}>Row {row} Title</h3>
-                <p style={{ color: '#a1a1aa' }}>This is some placeholder text for row {row}.</p>
-              </div>
-              {/* Right column: bigger placeholder image */}
+          {[1, 2, 3].map((row) => {
+            // Define unique titles and texts for each row
+            const rowContent = [
+              {
+                title: "Step 1: Take a plate from the box",
+                text: "The plates were made out of porcelain and were bought from a local store. They are meant to be used as a canvas for your thoughts and experiences."
+              },
+              {
+                title: "Step 2: Throw the plate into the installation",
+                text: "This symbolises the act of throwing away your frustrations and negative experiences. The installation is designed to capture the essence of these moments, transforming them into something beautiful."
+              },
+              {
+                title: "Step 3: Watch the plate shatter and lights shine through the fabric on the floor",
+                text: "After shattering, the plates create a stunning visual effect as the light shines through the fabric on the floor."
+              }
+            ][row - 1];
+
+            return (
               <div
+                key={row}
                 style={{
-                  width: '180px',
-                  height: '180px',
-                  background: '#232329',
-                  borderRadius: '12px',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 2px 16px rgba(0,0,0,0.24)',
-                  flexShrink: 0,
-                  overflow: 'hidden'
+                  justifyContent: 'space-between',
+                  gap: '2rem',
+                  width: '100%',
+                  maxWidth: '800px',
+                  margin: '0 auto',
                 }}
               >
-                <Image
-                  src={`/instructionCard-${row}.png`}
-                  alt={`instructions ${row}`}
-                  width={200}
-                  height={300}
-                  priority={row === 1}
-                />
+                {/* Left column: unique text */}
+                <div style={{ flex: 1 }}>
+                  <h3 style={{ color: '#f3f4f6', marginBottom: '0.5rem' }}>{rowContent.title}</h3>
+                  <p style={{ color: '#a1a1aa' }}>{rowContent.text}</p>
+                </div>
+                {/* Right column: bigger placeholder image */}
+                <div
+                  style={{
+                    width: '300px',
+                    height: '300px',
+                    background: '#232329',
+                    borderRadius: '12px',
+                    display: 'flex',
+                    boxShadow: '0 2px 16px rgba(0,0,0,0.24)',
+                    flexShrink: 0,
+                    overflow: 'hidden'
+                  }}
+                >
+                  <Image
+                    src={`/instructionCard-${row}.png`}
+                    alt={`instructions ${row}`}
+                    width={220}
+                    height={220}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'contain',
+                      borderRadius: '12px',
+                      boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'
+                    }}
+                    priority={row === 1}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </section>
       </section>
 
