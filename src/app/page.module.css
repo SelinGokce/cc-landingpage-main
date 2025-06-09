@@ -291,3 +291,149 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Responsive styles for mobile devices */
+@media (max-width: 900px) {
+  .main {
+    padding: 0 0.5rem 2rem 0.5rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1rem;
+    font-size: 1.3rem;
+  }
+
+  .navLinks {
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 1.5rem 1rem;
+    margin: 0 0 2rem 0;
+    border-radius: 8px;
+  }
+
+  .heroText {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .heroImage {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .heroImgTag {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    max-height: 350px;
+  }
+
+  .videoSection {
+    margin: 2rem 0;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .videoWrapper {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .howItWorksSection {
+    margin: 2rem 0;
+  }
+
+  .howItWorksInner {
+    gap: 1.5rem;
+    margin: 2rem 0;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .howItWorksStep {
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 100%;
+    align-items: stretch;
+  }
+
+  .howItWorksStepImageWrapper {
+    width: 100%;
+    height: 180px;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .howItWorksStepImage {
+    width: 100%;
+    height: 100%;
+  }
+
+  .installationSection {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    min-height: unset;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .installationSlideshowWrapper {
+    flex: unset;
+    width: 100%;
+    max-width: 100%;
+    min-height: 180px;
+    aspect-ratio: 16/10;
+  }
+
+  .installationText {
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+
+  .teamSectionWrapper {
+    margin: 2rem 2vw;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .teamHexagonRow {
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .hexagon {
+    width: 140px;
+    height: 140px;
+    min-width: 140px;
+    max-width: 140px;
+    min-height: 140px;
+    max-height: 140px;
+    margin: 0 0.5rem 1.5rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .hexagonTitle {
+    font-size: 1.05rem;
+  }
+
+  .hexagonText {
+    font-size: 0.95rem;
+  }
+
+  .scrollToTopButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
