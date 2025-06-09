@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 
 // Load Google Fonts for Ubuntu Condensed
@@ -84,6 +84,32 @@ function Slideshow() {
       </button>
     </div>
   );
+}
+
+function ScrollToTopButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setVisible(window.scrollY > 200);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return visible ? (
+    <button
+      onClick={scrollToTop}
+      className={styles.scrollToTopButton}
+      aria-label="Scroll to top"
+    >
+      ↑
+    </button>
+  ) : null;
 }
 
 export default function Home() {
@@ -225,6 +251,7 @@ export default function Home() {
           ))}
         </section>
       </section>
+      <ScrollToTopButton />
     </main>
   );
 }
