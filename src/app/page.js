@@ -125,9 +125,21 @@ export default function Home() {
       >
         <span style={{ color: '#f3f4f6' }}>Consequences</span>
         <div style={{ display: 'flex', gap: '1.5rem', fontSize: '1rem', fontWeight: 'normal' }}>
-          <a href="#about" style={{ textDecoration: 'none', color: '#60a5fa', padding: '0.5em 1em', borderRadius: '4px', transition: 'background 0.2s', background: 'transparent' }}>About</a>
+          <a
+  href="#about"
+  style={{
+    textDecoration: 'none',
+    color: '#60a5fa',
+    padding: '0.5em 1em',
+    borderRadius: '4px',
+    transition: 'background 0.2s',
+    background: 'transparent'
+  }}
+>
+  About
+</a>
           <a href="#features" style={{ textDecoration: 'none', color: '#60a5fa', padding: '0.5em 1em', borderRadius: '4px', transition: 'background 0.2s', background: 'transparent' }}>Features</a>
-          <a href="#contact" style={{ textDecoration: 'none', color: '#60a5fa', padding: '0.5em 1em', borderRadius: '4px', transition: 'background 0.2s', background: 'transparent' }}>Contact</a>
+          <a href="#team" style={{ textDecoration: 'none', color: '#60a5fa', padding: '0.5em 1em', borderRadius: '4px', transition: 'background 0.2s', background: 'transparent' }}>Group 4</a>
         </div>
       </nav>
 
@@ -211,7 +223,27 @@ export default function Home() {
           width: '100%',
         }}
       >
-        <h2 style={{ color: '#f3f4f6', fontSize: '2rem', marginBottom: '1.5rem' }}>Watch the Installation</h2>
+        <h2
+  id="about"
+  style={{
+    color: '#f3f4f6',
+    fontSize: '2rem',
+    marginBottom: '1.5rem'
+  }}
+>
+  What is the Concequences installation about?
+</h2>
+         <p
+  style={{
+    color: '#a1a1aa',
+    fontSize: '1.1rem',
+    paddingBottom: '1.5rem' // Added padding underneath the paragraph
+  }}
+>
+  This installation uses a Raspberry Pi and Python to convert sound, registered via a microphone, into various LED patterns. When fragile objects, such as plates, are thrown down from above and break, the resulting sound triggers a reaction in the LEDs, which begin to glow. This play of light symbolizes the impact of aggression and anger on your living environment, even when those consequences are not immediately visible.
+
+  The installation is constructed from plexiglass and wood, while the connecting pieces are made from PLA. These parts were designed in Blender and then 3D printed.
+</p>
         <div
           style={{
             width: '100%',
@@ -248,7 +280,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section style={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
-        <h1 style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>How it works</h1>
+        <h1 id="features" style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>How it works</h1>
         <section
           style={{
             display: 'flex',
@@ -380,7 +412,7 @@ export default function Home() {
           marginRight: '4vw'
         }}
       >
-        <h1 style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>The Team</h1>
+        <h1 id="team" style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>The Team</h1>
         <section
           style={{
             display: 'flex',
@@ -414,10 +446,10 @@ export default function Home() {
                 padding: '1.2em',
                 borderRadius: '0',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.24)',
-                width: '130px',
+                width: '220px',
                 height: '220px',
-                minWidth: '130px',
-                maxWidth: '130px',
+                minWidth: '220px',
+                maxWidth: '220px',
                 minHeight: '220px',
                 maxHeight: '220px',
                 display: 'flex',
