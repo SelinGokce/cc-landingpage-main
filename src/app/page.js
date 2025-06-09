@@ -1,12 +1,94 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 if (typeof window !== "undefined") {
   const link = document.createElement('link');
   link.href = 'https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap';
   link.rel = 'stylesheet';
   document.head.appendChild(link);
+}
+
+function Slideshow() {
+  const images = [
+    { src: "/installation-closeup.png", alt: "Installation Close-up" },
+    { src: "/installation-backside.png", alt: "Installation Back Side" }
+  ];
+  const [index, setIndex] = useState(0);
+  const prevImage = (e) => {
+    e.stopPropagation();
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const nextImage = (e) => {
+    e.stopPropagation();
+    setIndex((prev) => (prev + 1) % images.length);
+  };
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <Image
+        src={images[index].src}
+        alt={images[index].alt}
+        width={520}
+        height={600}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          borderRadius: '12px',
+          transition: 'opacity 0.5s'
+        }}
+      />
+      {/* Left arrow */}
+      <button
+        onClick={prevImage}
+        aria-label="Previous image"
+        style={{
+          position: 'absolute',
+          left: 10,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          background: 'rgba(30,30,30,0.7)',
+          border: 'none',
+          color: '#fff',
+          fontSize: '2rem',
+          borderRadius: '50%',
+          width: 36,
+          height: 36,
+          cursor: 'pointer',
+          zIndex: 2,
+          display: images.length > 1 ? 'block' : 'none'
+        }}
+      >
+        {'<'}
+      </button>
+      {/* Right arrow */}
+      <button
+        onClick={nextImage}
+        aria-label="Next image"
+        style={{
+          position: 'absolute',
+          right: 10,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          background: 'rgba(30,30,30,0.7)',
+          border: 'none',
+          color: '#fff',
+          fontSize: '2rem',
+          borderRadius: '50%',
+          width: 36,
+          height: 36,
+          cursor: 'pointer',
+          zIndex: 2,
+          display: images.length > 1 ? 'block' : 'none'
+        }}
+      >
+        {'>'}
+      </button>
+    </div>
+  );
 }
 
 export default function Home() {
@@ -178,11 +260,11 @@ export default function Home() {
             const rowContent = [
               {
                 title: "Step 1: Take a plate from the box",
-                text: "The plates were made out of porcelain and were bought from a local store. They are meant to be used as a canvas for your thoughts and experiences."
+                text: "The plates were made out of porcelain and were bought from a local store. They are meant to be used as a canvas for your thoughts and frustrations."
               },
               {
                 title: "Step 2: Throw the plate into the installation",
-                text: "This symbolises the act of throwing away your frustrations and negative experiences. The installation is designed to capture the essence of these moments, transforming them into something beautiful."
+                text: "This symbolises the act of throwing away your frustrations and negative experiences."
               },
               {
                 title: "Step 3: Watch the plate shatter and lights shine through the fabric on the floor",
@@ -249,53 +331,45 @@ export default function Home() {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '4rem auto',
-          maxWidth: '900px',
+          margin: '6rem auto', // Increased vertical margin
+          maxWidth: '1100px',  // Optionally allow a bit more width
           width: '100%',
           gap: '2rem',
+          minHeight: '500px', // Added minimum height for the section
         }}
       >
-        {/* Right side: image */}
+        {/* right side: image slideshow */}
         <div
           style={{
-            flex: '0 0 520px',
-            maxWidth: '520px',
-            minHeight: '340px', // Added minimum height
-            aspectRatio: '16/9',
+            flex: '0 0 600px', // Increased width
+            maxWidth: '600px',
+            minHeight: '420px', // Increased min height
+            aspectRatio: '16/10', // Slightly taller aspect ratio
             background: '#232329',
             borderRadius: '12px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             boxShadow: '0 2px 16px rgba(0,0,0,0.24)',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            position: 'relative'
           }}
         >
-          <Image
-            src="/installation-closeup.png"
-            alt="Installation Close-up"
-            width={520}
-            height={600} // Increased height
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              borderRadius: '12px'
-            }}
-          />
+          {/* Slideshow logic */}
+          <Slideshow />
         </div>
-        {/* Left side: text */}
+        {/* left side: text */}
         <div style={{ flex: 1, color: '#f3f4f6', textAlign: 'left', minWidth: 0 }}>
           <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Installation Close-up</h2>
           <p style={{ color: '#a1a1aa', fontSize: '1.1rem' }}>
-            Here you can see a detailed image of the installation. Notice the materials and construction that make the experience possible.
+            Here you can see a detailed image of the installation. It is made out of wood and plexiglass, with a calculated height to ensure the safety of the user. The lights get powered by a Raspberry Pi, which only respond to a microphone attached to the back side.
           </p>
         </div>
       </section>
 
       {/* Features Section */}
       <section style={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
-        <h1 style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>Team 4</h1>
+        <h1 style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>The Team</h1>
       <section style={{ display: 'flex', justifyContent: 'space-around', gap: '2rem', flexWrap: 'wrap', marginTop: '4rem', marginBottom: '4rem' }}>
         <div style={{ background: '#232329', padding: '2em', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.24)', flex: '1 1 250px', minWidth: '220px' }}>
           <h2 style={{ color: '#f3f4f6' }}>Feature One</h2>
