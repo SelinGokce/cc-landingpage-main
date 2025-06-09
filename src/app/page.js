@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
+// Load Google Fonts for Ubuntu Condensed
 if (typeof window !== "undefined") {
   const link = document.createElement('link');
   link.href = 'https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap';
@@ -16,6 +17,7 @@ function Slideshow() {
     { src: "/installation-backside.png", alt: "Installation Back Side" }
   ];
   const [index, setIndex] = useState(0);
+
   const prevImage = (e) => {
     e.stopPropagation();
     setIndex((prev) => (prev - 1 + images.length) % images.length);
@@ -41,7 +43,6 @@ function Slideshow() {
           transition: 'opacity 0.5s'
         }}
       />
-      {/* Left arrow */}
       <button
         onClick={prevImage}
         aria-label="Previous image"
@@ -64,7 +65,6 @@ function Slideshow() {
       >
         {'<'}
       </button>
-      {/* Right arrow */}
       <button
         onClick={nextImage}
         aria-label="Next image"
@@ -92,9 +92,16 @@ function Slideshow() {
 }
 
 export default function Home() {
-
   return (
-    <main style={{ fontFamily: "'Ubuntu Condensed', sans-serif", background: '#18181b', minHeight: '100vh', color: '#f3f4f6', padding: '0 2rem 2rem 2rem' }}>
+    <main
+      style={{
+        fontFamily: "'Ubuntu Condensed', sans-serif",
+        background: '#18181b',
+        minHeight: '100vh',
+        color: '#f3f4f6',
+        padding: '0 2rem 2rem 2rem'
+      }}
+    >
       {/* Navigation Bar */}
       <nav
         style={{
@@ -143,7 +150,7 @@ export default function Home() {
           paddingRight: '4rem',
           paddingLeft: '4rem',
           zIndex: 1,
-          marginBottom: '4rem' // Add extra space below this section
+          marginBottom: '4rem'
         }}
       >
         {/* Left column: text */}
@@ -185,7 +192,7 @@ export default function Home() {
               zIndex: 0,
               position: 'relative',
               borderRadius: '8px',
-              boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)' // <-- Drop shadow added here
+              boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45)'
             }}
             priority
           />
@@ -199,7 +206,7 @@ export default function Home() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '4rem auto 4rem auto',
+          margin: '4rem auto',
           maxWidth: '900px',
           width: '100%',
         }}
@@ -248,15 +255,13 @@ export default function Home() {
             flexDirection: 'column',
             gap: '2rem',
             margin: '4rem auto',
-            maxWidth: '900px', // Limit width for compactness
+            maxWidth: '900px',
             width: '100%',
             alignItems: 'center',
             justifyContent: 'center',
-
           }}
         >
           {[1, 2, 3].map((row) => {
-            // Define unique titles and texts for each row
             const rowContent = [
               {
                 title: "Step 1: Take a plate from the box",
@@ -285,12 +290,10 @@ export default function Home() {
                   margin: '0 auto',
                 }}
               >
-                {/* Left column: unique text */}
                 <div style={{ flex: 1 }}>
                   <h3 style={{ color: '#f3f4f6', marginBottom: '0.5rem' }}>{rowContent.title}</h3>
                   <p style={{ color: '#a1a1aa' }}>{rowContent.text}</p>
                 </div>
-                {/* Right column: bigger placeholder image */}
                 <div
                   style={{
                     width: '300px',
@@ -324,27 +327,26 @@ export default function Home() {
         </section>
       </section>
 
-         {/* Image Placeholder Section at the bottom */}
+      {/* Image Placeholder Section at the bottom */}
       <section
         style={{
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '6rem auto', // Increased vertical margin
-          maxWidth: '1100px',  // Optionally allow a bit more width
+          margin: '6rem auto',
+          maxWidth: '1100px',
           width: '100%',
           gap: '2rem',
-          minHeight: '500px', // Added minimum height for the section
+          minHeight: '500px',
         }}
       >
-        {/* right side: image slideshow */}
         <div
           style={{
-            flex: '0 0 600px', // Increased width
+            flex: '0 0 600px',
             maxWidth: '600px',
-            minHeight: '420px', // Increased min height
-            aspectRatio: '16/10', // Slightly taller aspect ratio
+            minHeight: '420px',
+            aspectRatio: '16/10',
             background: '#232329',
             borderRadius: '12px',
             display: 'flex',
@@ -355,10 +357,8 @@ export default function Home() {
             position: 'relative'
           }}
         >
-          {/* Slideshow logic */}
           <Slideshow />
         </div>
-        {/* left side: text */}
         <div style={{ flex: 1, color: '#f3f4f6', textAlign: 'left', minWidth: 0 }}>
           <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Installation Close-up</h2>
           <p style={{ color: '#a1a1aa', fontSize: '1.1rem' }}>
@@ -367,26 +367,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section style={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
+      {/* Featured Section */}
+      <section
+        style={{
+          textAlign: 'center',
+          marginBottom: '2rem',
+          marginTop: '2rem',
+          background: '#26272e',
+          borderRadius: '16px',
+          padding: '2rem 0',
+          marginLeft: '4vw',
+          marginRight: '4vw'
+        }}
+      >
         <h1 style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>The Team</h1>
-      <section style={{ display: 'flex', justifyContent: 'space-around', gap: '2rem', flexWrap: 'wrap', marginTop: '4rem', marginBottom: '4rem' }}>
-        <div style={{ background: '#232329', padding: '2em', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.24)', flex: '1 1 250px', minWidth: '220px' }}>
-          <h2 style={{ color: '#f3f4f6' }}>Feature One</h2>
-          <p style={{ color: '#a1a1aa' }}>Short description of the first feature.</p>
-        </div>
-        <div style={{ background: '#232329', padding: '2em', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.24)', flex: '1 1 250px', minWidth: '220px' }}>
-          <h2 style={{ color: '#f3f4f6' }}>Feature Two</h2>
-          <p style={{ color: '#a1a1aa' }}>Short description of the second feature.</p>
-        </div>
-        <div style={{ background: '#232329', padding: '2em', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.24)', flex: '1 1 250px', minWidth: '220px' }}>
-          <h2 style={{ color: '#f3f4f6' }}>Feature Three</h2>
-          <p style={{ color: '#a1a1aa' }}>Short description of the third feature.</p>
-        </div>
+        <section
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '2rem',
+            flexWrap: 'wrap',
+            marginTop: '4rem',
+            marginBottom: '4rem',
+            paddingLeft: '0',
+            paddingRight: '0'
+          }}
+        >
+          {[
+            {
+              title: "Selin",
+              text: "Design and Communication."
+            },
+            {
+              title: "Shania",
+              text: "Coding and Electronics."
+            },
+            {
+              title: "Palina",
+              text: "Materials and Construction."
+            }
+          ].map((member, i) => (
+            <div
+              key={i}
+              style={{
+                background: '#232329',
+                padding: '1.2em',
+                borderRadius: '0',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.24)',
+                width: '130px',
+                height: '220px',
+                minWidth: '130px',
+                maxWidth: '130px',
+                minHeight: '220px',
+                maxHeight: '220px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                clipPath: 'polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)',
+                WebkitClipPath: 'polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)',
+                margin: '0 1.5rem',
+              }}
+            >
+              <h2 style={{ color: '#f3f4f6', fontSize: '1.3rem', marginBottom: '0.5em' }}>{member.title}</h2>
+              <p style={{ color: '#a1a1aa', textAlign: 'center', fontSize: '1rem' }}>
+                {member.text}
+              </p>
+            </div>
+          ))}
+        </section>
       </section>
-    </section>
-
-   
     </main>
   );
 }
