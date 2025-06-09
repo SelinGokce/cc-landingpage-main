@@ -5,17 +5,18 @@ import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 
 // Load Google Fonts for Ubuntu Condensed
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
   const link = document.createElement('link');
-  link.href = 'https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap';
+  link.href =
+    'https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap';
   link.rel = 'stylesheet';
   document.head.appendChild(link);
 }
 
 function Slideshow() {
   const images = [
-    { src: "/installation-closeup.png", alt: "Installation Close-up" },
-    { src: "/installation-backside.png", alt: "Installation Back Side" }
+    { src: '/installation-frontside.png', alt: 'Installation Front Side' },
+    { src: '/installation-backside.png', alt: 'Installation Back Side' },
   ];
   const [index, setIndex] = useState(0);
 
@@ -55,7 +56,7 @@ function Slideshow() {
           height: 36,
           cursor: 'pointer',
           zIndex: 2,
-          display: images.length > 1 ? 'block' : 'none'
+          display: images.length > 1 ? 'block' : 'none',
         }}
       >
         {'<'}
@@ -77,7 +78,7 @@ function Slideshow() {
           height: 36,
           cursor: 'pointer',
           zIndex: 2,
-          display: images.length > 1 ? 'block' : 'none'
+          display: images.length > 1 ? 'block' : 'none',
         }}
       >
         {'>'}
@@ -119,9 +120,15 @@ export default function Home() {
       <nav className={styles.navbar}>
         <span style={{ color: '#f3f4f6' }}>Consequences</span>
         <div className={styles.navLinks}>
-          <a href="#about" className={styles.navLink}>About</a>
-          <a href="#features" className={styles.navLink}>Features</a>
-          <a href="#team" className={styles.navLink}>Group 4</a>
+          <a href="#about" className={styles.navLink}>
+            About
+          </a>
+          <a href="#features" className={styles.navLink}>
+            Features
+          </a>
+          <a href="#team" className={styles.navLink}>
+            Group 4
+          </a>
         </div>
       </nav>
 
@@ -129,7 +136,9 @@ export default function Home() {
       <div className={styles.hero}>
         {/* Left column: text */}
         <div className={styles.heroText}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>All frustrations in one</h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
+            All frustrations in one
+          </h2>
           <p style={{ fontSize: '1.25rem', color: '#a1a1aa' }}>
             The installation that allowed you to shatter plates.
           </p>
@@ -153,9 +162,18 @@ export default function Home() {
           What is the Concequences installation about?
         </h2>
         <p className={styles.videoDescription}>
-          This installation uses a Raspberry Pi and Python to convert sound, registered via a microphone, into various LED patterns. When fragile objects, such as plates, are thrown down from above and break, the resulting sound triggers a reaction in the LEDs, which begin to glow. This play of light symbolizes the impact of aggression and anger on your living environment, even when those consequences are not immediately visible.
-          <br /><br />
-          The installation is constructed from plexiglass and wood, while the connecting pieces are made from PLA. These parts were designed in Blender and then 3D printed.
+          This installation uses a Raspberry Pi and Python to convert sound,
+          registered via a microphone, into various LED patterns. When fragile
+          objects, such as plates, are thrown down from above and break, the
+          resulting sound triggers a reaction in the LEDs, which begin to glow.
+          This play of light symbolizes the impact of aggression and anger on
+          your living environment, even when those consequences are not
+          immediately visible.
+          <br />
+          <br />
+          The installation is constructed from plexiglass and wood, while the
+          connecting pieces are made from PLA. These parts were designed in
+          Blender and then 3D printed.
         </p>
         <div className={styles.videoWrapper}>
           <iframe
@@ -173,28 +191,33 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className={styles.howItWorksSection}>
-        <h1 id="features" className={styles.sectionTitle}>How it works</h1>
+        <h1 id="features" className={styles.sectionTitle}>
+          How it works
+        </h1>
         <section className={styles.howItWorksInner}>
           {[1, 2, 3].map((row) => {
             const rowContent = [
               {
-                title: "Step 1: Take a plate from the box",
-                text: "The plates were made out of porcelain and were bought from a local store. They are meant to be used as a canvas for your thoughts and frustrations."
+                title: 'Step 1: Take a plate from the box',
+                text: 'The plates were made out of porcelain and were bought from a local store. They are meant to be used as a canvas for your thoughts and frustrations.',
               },
               {
-                title: "Step 2: Throw the plate into the installation",
-                text: "This symbolises the act of throwing away your frustrations and negative experiences."
+                title: 'Step 2: Throw the plate into the installation',
+                text: 'This symbolises the act of throwing away your frustrations and negative experiences.',
               },
               {
-                title: "Step 3: Watch the plate shatter and lights shine through the fabric on the floor",
-                text: "After shattering, the plates create a stunning visual effect as the light shines through the fabric on the floor."
-              }
+                title:
+                  'Step 3: Watch the plate shatter and lights shine through the fabric on the floor',
+                text: 'After shattering, the plates create a stunning visual effect as the light shines through the fabric on the floor.',
+              },
             ][row - 1];
 
             return (
               <div key={row} className={styles.howItWorksStep}>
                 <div className={styles.howItWorksStepText}>
-                  <h3 style={{ color: '#f3f4f6', marginBottom: '0.5rem' }}>{rowContent.title}</h3>
+                  <h3 style={{ color: '#f3f4f6', marginBottom: '0.5rem' }}>
+                    {rowContent.title}
+                  </h3>
                   <p style={{ color: '#a1a1aa' }}>{rowContent.text}</p>
                 </div>
                 <div className={styles.howItWorksStepImageWrapper}>
@@ -221,28 +244,33 @@ export default function Home() {
         <div className={styles.installationText}>
           <h2 className={styles.installationTitle}>Installation Close-up</h2>
           <p className={styles.installationDescription}>
-            Here you can see a detailed image of the installation. It is made out of wood and plexiglass, with a calculated height to ensure the safety of the user. The lights get powered by a Raspberry Pi, which only respond to a microphone attached to the back side.
+            Here you can see a detailed image of the installation. It is made
+            out of wood and plexiglass, with a calculated height to ensure the
+            safety of the user. The lights get powered by a Raspberry Pi, which
+            only respond to a microphone attached to the back side.
           </p>
         </div>
       </section>
 
       {/* Featured Section */}
       <section className={styles.teamSectionWrapper}>
-        <h1 id="team" className={styles.teamSectionTitle}>The Team</h1>
+        <h1 id="team" className={styles.teamSectionTitle}>
+          The Team
+        </h1>
         <section className={styles.teamHexagonRow}>
           {[
             {
-              title: "Selin",
-              text: "Design and Communication."
+              title: 'Selin',
+              text: 'Design and Communication.',
             },
             {
-              title: "Shania",
-              text: "Coding and Electronics."
+              title: 'Shania',
+              text: 'Coding and Electronics.',
             },
             {
-              title: "Palina",
-              text: "Materials and Construction."
-            }
+              title: 'Palina',
+              text: 'Materials and Construction.',
+            },
           ].map((member, i) => (
             <div key={i} className={styles.hexagon}>
               <h2 className={styles.hexagonTitle}>{member.title}</h2>
