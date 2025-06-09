@@ -74,9 +74,9 @@ export default function Home() {
             maxWidth: '40%',
           }}
         >
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Placeholder Title</h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>All frustrations in one</h2>
           <p style={{ fontSize: '1.25rem', color: '#a1a1aa' }}>
-            This is some placeholder text on the left side of the fullscreen image section. You can replace it with your own content.
+            The installation that allowed you to shatter plates.
           </p>
         </div>
         {/* Right column: image */}
@@ -136,9 +136,24 @@ export default function Home() {
             color: '#a1a1aa',
             fontSize: '1.5rem',
             boxShadow: '0 2px 16px rgba(0,0,0,0.24)',
+            overflow: 'hidden'
           }}
         >
-          Video Placeholder
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/g39wajMhOLU"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{
+              borderRadius: '12px',
+              width: '100%',
+              height: '100%',
+              background: '#232329'
+            }}
+          ></iframe>
         </div>
       </section>
 
@@ -227,7 +242,60 @@ export default function Home() {
         </section>
       </section>
 
+         {/* Image Placeholder Section at the bottom */}
+      <section
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: '4rem auto',
+          maxWidth: '900px',
+          width: '100%',
+          gap: '2rem',
+        }}
+      >
+        {/* Right side: image */}
+        <div
+          style={{
+            flex: '0 0 520px',
+            maxWidth: '520px',
+            minHeight: '340px', // Added minimum height
+            aspectRatio: '16/9',
+            background: '#232329',
+            borderRadius: '12px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 2px 16px rgba(0,0,0,0.24)',
+            overflow: 'hidden'
+          }}
+        >
+          <Image
+            src="/installation-closeup.png"
+            alt="Installation Close-up"
+            width={520}
+            height={600} // Increased height
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '12px'
+            }}
+          />
+        </div>
+        {/* Left side: text */}
+        <div style={{ flex: 1, color: '#f3f4f6', textAlign: 'left', minWidth: 0 }}>
+          <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Installation Close-up</h2>
+          <p style={{ color: '#a1a1aa', fontSize: '1.1rem' }}>
+            Here you can see a detailed image of the installation. Notice the materials and construction that make the experience possible.
+          </p>
+        </div>
+      </section>
+
       {/* Features Section */}
+      <section style={{ textAlign: 'center', marginBottom: '4rem', marginTop: '4rem' }}>
+        <h1 style={{ fontSize: '3rem', margin: '0.5em 0', color: '#f3f4f6' }}>Team 4</h1>
       <section style={{ display: 'flex', justifyContent: 'space-around', gap: '2rem', flexWrap: 'wrap', marginTop: '4rem', marginBottom: '4rem' }}>
         <div style={{ background: '#232329', padding: '2em', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.24)', flex: '1 1 250px', minWidth: '220px' }}>
           <h2 style={{ color: '#f3f4f6' }}>Feature One</h2>
@@ -242,6 +310,9 @@ export default function Home() {
           <p style={{ color: '#a1a1aa' }}>Short description of the third feature.</p>
         </div>
       </section>
+    </section>
+
+   
     </main>
   );
 }
